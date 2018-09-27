@@ -2,7 +2,7 @@
 
 const {
   IncomingMessage
-} = require('http');
+} = require('https');
 const {
   as, AsyncObject, Event
 } = require('@cuties/cutie');
@@ -19,7 +19,7 @@ const {
 } = require('@cuties/process');
 const {
   ClosedServer,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   IncomingMessageWithAbortEvent
 } = require('./../../index');
@@ -78,7 +78,7 @@ new KilledProcess(
 ).after(
   FakeServer(port).as('server').after(
     new EndedRequest(
-      new HttpRequest(
+      new HttpsRequest(
         options, new GeneratedRequestCallback(
           as('server')
         )

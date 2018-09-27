@@ -19,7 +19,7 @@ const {
 } = require('@cuties/process');
 const {
   SocketOfResponse,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   EndedResponse,
   ClosedServer
@@ -82,7 +82,7 @@ new KilledProcess(
     port, hostname, new RequestResponseEvent()
   ).as('server').after(
     new EndedRequest(
-      new HttpRequest(
+      new HttpsRequest(
         options, new GeneratedRequestCallback(
           as('server')
         )

@@ -2,7 +2,7 @@
 
 const {
   Agent
-} = require('http');
+} = require('https');
 const {
   Socket
 } = require('net');
@@ -30,7 +30,7 @@ const {
   CreatedAgentConnection,
   ClosedServer,
   DestroyedAgent,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   ReusedSocketOfAgent
 } = require('./../../index');
@@ -87,7 +87,7 @@ new KilledProcess(
           new ReusedSocketOfAgent(
             agent, as('socket'),
             new EndedRequest(
-              new HttpRequest(
+              new HttpsRequest(
                 options, new GeneratedRequestCallback(
                   agent, as('socket'), as('server')
                 )

@@ -2,7 +2,7 @@
 
 const {
   Server
-} = require('http');
+} = require('https');
 const {
   as, AsyncObject, Event
 } = require('@cuties/cutie');
@@ -13,11 +13,11 @@ const {
   Is
 } = require('@cuties/is');
 const {
-  CreatedHttpServer,
+  CreatedHttpsServer,
   ListeningServer,
   EndedRequest,
   EndedResponse,
-  HttpRequest,
+  HttpsRequest,
   ClosedServer
 } = require('./../../index');
 
@@ -62,14 +62,14 @@ class GeneratedRequestCallback extends AsyncObject {
 new Assertion(
   new Is(
     new ListeningServer(
-      new CreatedHttpServer(
+      new CreatedHttpsServer(
         new RequestResponseEvent()
       ), port, hostname
     ).as('server'), Server
   )
 ).after(
   new EndedRequest(
-    new HttpRequest(
+    new HttpsRequest(
       options, new GeneratedRequestCallback(
         as('server')
       )

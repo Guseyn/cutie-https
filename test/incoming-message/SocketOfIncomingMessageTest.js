@@ -19,7 +19,7 @@ const {
 } = require('@cuties/process');
 const {
   ClosedServer,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   SocketOfIncomingMessage
 } = require('./../../index');
@@ -65,7 +65,7 @@ new KilledProcess(
 ).after(
   FakeServer(port).as('server').after(
     new EndedRequest(
-      new HttpRequest(
+      new HttpsRequest(
         options, new GeneratedRequestCallback(
           as('server')
         )

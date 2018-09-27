@@ -2,7 +2,7 @@
 
 const {
   Agent
-} = require('http');
+} = require('https');
 const {
   Socket
 } = require('net');

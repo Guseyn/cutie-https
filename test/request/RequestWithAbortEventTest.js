@@ -2,7 +2,7 @@
 
 const {
   ClientRequest
-} = require('http');
+} = require('https');
 const {
   as, AsyncObject, Event
 }  = require('@cuties/cutie');
@@ -19,7 +19,7 @@ const {
 } = require('@cuties/process');
 const {
   RequestWithAbortEvent,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   EndedResponse,
   ClosedServer
@@ -75,7 +75,7 @@ new KilledProcess(
       new Is(
         new RequestWithAbortEvent(
           new EndedRequest(
-            new HttpRequest(
+            new HttpsRequest(
               options, new GeneratedRequestCallback(
                 as('server')
               )

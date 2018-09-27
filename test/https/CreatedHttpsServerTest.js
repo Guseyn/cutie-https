@@ -14,7 +14,7 @@ const {
   Assertion, EqualAssertion
 } = require('@cuties/assert');
 const {
-  Is
+  IsÏ
 } = require('@cuties/is');
 const {
   FoundProcessOnPort,
@@ -25,7 +25,7 @@ const {
   CreatedAgentConnection,
   ClosedServer,
   DestroyedAgent,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   ReusedSocketOfAgent
 } = require('./../../index');
@@ -69,7 +69,7 @@ new KilledProcess(
 ).after(
   FakeServer(port).as('server').after(
     new EndedRequest(
-      new HttpRequest(
+      new HttpsRequest(
         options, new GeneratedRequestCallback(
           as('server')
         )
