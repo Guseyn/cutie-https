@@ -1,3 +1,3 @@
 const executor = require('test-executor');
 
-executor('./test');
+executor('./test/https');
