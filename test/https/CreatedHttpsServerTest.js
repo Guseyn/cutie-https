@@ -14,7 +14,7 @@ const {
   Assertion, EqualAssertion
 } = require('@cuties/assert');
 const {
-  IsÏ
+  Is
 } = require('@cuties/is');
 const {
   FoundProcessOnPort,
@@ -22,7 +22,13 @@ const {
   KilledProcess
 } = require('@cuties/process');
 const {
+  ReadDataByPath
+} = require('@cuties/fs');
+const {
+  CreatedAgent,
   CreatedAgentConnection,
+  CreatedOptions,
+  OptionsWithAgent,
   ClosedServer,
   DestroyedAgent,
   HttpsRequest,
@@ -32,15 +38,10 @@ const {
 const {
   FakeServer
 } = require('./../../fake');
+const ArrayOf = require('./../../src/ArrayOf');
 
 const port = 8009;
 const hostname = '127.0.0.1';
-const options = {
-  hostname: hostname,
-  port: port,
-  path: '/',
-  method: 'GET'
-};
 
 class GeneratedRequestCallback extends AsyncObject {
 
@@ -62,16 +63,28 @@ class GeneratedRequestCallback extends AsyncObject {
 
 }
 
-new KilledProcess(
-  new Pid(
-    new FoundProcessOnPort(port)
-  ), 'SIGHUP'
-).after(
-  FakeServer(port).as('server').after(
-    new EndedRequest(
-      new HttpsRequest(
-        options, new GeneratedRequestCallback(
-          as('server')
+new CreatedOptions(
+  'hostname', hostname,
+  'port', port,
+  'path', '/',
+  'method', 'GET',
+  'ca', new ArrayOf(
+    new ReadDataByPath('./src/cert.pem')
+  )
+).as('options').after(
+  new KilledProcess(
+    new Pid(
+      new FoundProcessOnPort(port)
+    ), 'SIGHUP'
+  ).after(
+    FakeServer(port).as('server').after(
+      new EndedRequest(
+        new HttpsRequest(
+          new OptionsWithAgent(
+            as('options'), new CreatedAgent(as('options'))
+          ), new GeneratedRequestCallback(
+            as('server')
+          )
         )
       )
     )

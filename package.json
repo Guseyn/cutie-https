@@ -23,7 +23,8 @@
   "dependencies": {
     "@cuties/assert": "^1.1.5",
     "@cuties/cutie": "^1.4.4",
-    "@cuties/http": "^1.2.2",
+    "@cuties/fs": "^1.1.2",
+    "@cuties/http": "^1.2.4",
     "@cuties/is": "^1.0.8",
     "@cuties/process": "^1.1.0",
     "test-executor": "^1.1.2"
