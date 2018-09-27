@@ -1,0 +1,31 @@
+{
+  "name": "@cuties/https",
+  "version": "1.0.0",
+  "description": "Cutie extension for https module in Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test-executor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guseyn/cutie-https.git"
+  },
+  "keywords": [
+    "cutie",
+    "https"
+  ],
+  "author": "guseyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Guseyn/cutie-https/issues"
+  },
+  "homepage": "https://github.com/Guseyn/cutie-https#readme",
+  "dependencies": {
+    "@cuties/assert": "^1.1.5",
+    "@cuties/cutie": "^1.4.4",
+    "@cuties/http": "^1.2.2",
+    "@cuties/is": "^1.0.8",
+    "@cuties/process": "^1.1.0",
+    "test-executor": "^1.1.2"
+  }
+}
