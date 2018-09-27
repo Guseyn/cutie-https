@@ -17,7 +17,7 @@ const {
 const {
   RequestAbortedTime,
   AbortedRequest,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   EndedResponse,
   ClosedServer
@@ -61,7 +61,7 @@ new KilledProcess(
       new IsNumber(
         new RequestAbortedTime(
           new AbortedRequest(
-            new HttpRequest(
+            new HttpsRequest(
               options, new GeneratedRequestCallback(
                 as('server')
               )
@@ -71,7 +71,7 @@ new KilledProcess(
       )
     ).after(
       new EndedRequest(
-        new HttpRequest(
+        new HttpsRequest(
           options, new GeneratedRequestCallback(
             as('server')
           )

@@ -2,7 +2,7 @@
 
 const {
   ClientRequest
-} = require('http');
+} = require('https');
 const {
   as, AsyncObject
 }  = require('@cuties/cutie');
@@ -18,7 +18,7 @@ const {
   RequestHeader,
   RequestWithHeader,
   RequestWithRemovedHeader,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   EndedResponse,
   ClosedServer
@@ -63,7 +63,7 @@ new KilledProcess(
         new EndedRequest(
           new RequestWithRemovedHeader(
             new RequestWithHeader(
-              new HttpRequest(
+              new HttpsRequest(
                 options, new GeneratedRequestCallback(
                   as('server')
                 )

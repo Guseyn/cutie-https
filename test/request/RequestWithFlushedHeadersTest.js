@@ -16,7 +16,7 @@ const {
 } = require('@cuties/process');
 const {
   RequestWithFlushedHeaders,
-  HttpRequest,
+  HttpsRequest,
   EndedRequest,
   EndedResponse,
   ClosedServer
@@ -60,7 +60,7 @@ new KilledProcess(
       new IsObject(
         new RequestWithFlushedHeaders(
           new EndedRequest(
-            new HttpRequest(
+            new HttpsRequest(
               options, new GeneratedRequestCallback(
                 as('server')
               )
