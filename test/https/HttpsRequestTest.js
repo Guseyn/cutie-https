@@ -1,9 +1,11 @@
 'use strict'
 
 const {
-  Server,
-  IncomingMessage
+  Server
 } = require('https');
+const {
+  IncomingMessage
+} = require('http');
 const {
   as, AsyncObject, Event
 } = require('@cuties/cutie');
