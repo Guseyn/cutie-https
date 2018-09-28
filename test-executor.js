@@ -8,4 +8,4 @@ const executor = require('test-executor');
 */
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-executor('./test/agent', './test/https', './test/incoming-message', './test/options', './test/request', './test/response', './test/server');
+executor('./test');
