@@ -13,7 +13,11 @@ const {
   Is
 } = require('@cuties/is');
 const {
+  ReadDataByPath
+} = require('@cuties/fs');
+const {
   CreatedHttpsServer,
+  CreatedOptions,
   ListeningServer,
   EndedRequest,
   EndedResponse,
@@ -63,6 +67,10 @@ new Assertion(
   new Is(
     new ListeningServer(
       new CreatedHttpsServer(
+        new CreatedOptions(
+          'key', new ReadDataByPath('./src/key.pem'),
+          'cert', new ReadDataByPath('./src/cert.pem')
+        ),
         new RequestResponseEvent()
       ), port, hostname
     ).as('server'), Server
