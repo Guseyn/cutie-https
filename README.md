@@ -1,4 +1,4 @@
-# cutie-http
+# cutie-https
 
 [![NPM Version][npm-image]][npm-url]
 
