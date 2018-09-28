@@ -24,15 +24,18 @@ const {
   KilledProcess
 } = require('@cuties/process');
 const {
-  CreatedAgent,
+  ReadDataByPath
+} = require('@cuties/fs');
+const {
   CreatedAgentConnection,
+  CreatedAgent,
+  CreatedOptions,
   ClosedServer
 } = require('./../../index');
 const {
   FakeServer
 } = require('./../../fake');
 
-const agent = new Agent({ keepAlive: true });
 const port = 8000;
 
 new KilledProcess(
@@ -44,7 +47,12 @@ new KilledProcess(
     new Assertion(
       new Is(
         new CreatedAgentConnection(
-          agent, {port: port}
+          new CreatedAgent(
+            new CreatedOptions(
+              'keepAlive', true,
+              'cert', new ReadDataByPath('./src/cert.pem')
+            )
+          ), {port: port}
         ).as('socket'), Socket
       )
     ).after(

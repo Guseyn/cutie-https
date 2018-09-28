@@ -58,28 +58,18 @@ class GeneratedRequestCallback extends AsyncObject {
   definedSyncCall() {
     return (agent, socket, server, key) => {
       return (res) => {
-        new EqualAssertion(
-          new HasOwnProperty(
-            new SocketsOfAgent(agent), key
-          ), true
-        ).after(
-          new DestroyedAgent(agent).after(
-            new EqualAssertion(
-              new HasOwnProperty(
-                new SocketsOfAgent(agent), key
-              ), true 
-              /* 
-                It's strange behavior. But DestroyedAgent works because connection don't hang.
-                If you try this test without DestroyedAgent, the test will run a long time.
-              */
-            ).after(
-              new DestroyedStream(socket).after(
-                new ClosedServer(server).after(
-                  new EqualAssertion(
-                    new HasOwnProperty(
-                      new SocketsOfAgent(agent), key
-                    ), false
-                  )
+        new DestroyedAgent(agent).after(
+          new EqualAssertion(
+            new HasOwnProperty(
+              new SocketsOfAgent(agent), key
+            ), false
+          ).after(
+            new DestroyedStream(socket).after(
+              new ClosedServer(server).after(
+                new EqualAssertion(
+                  new HasOwnProperty(
+                    new SocketsOfAgent(agent), key
+                  ), false
                 )
               )
             )
@@ -113,4 +103,4 @@ new KilledProcess(
       )
     )
   )
-)//.call();
+).call();

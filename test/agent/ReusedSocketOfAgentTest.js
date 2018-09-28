@@ -27,7 +27,13 @@ const {
   HasOwnProperty
 } = require('@cuties/object');
 const {
+  ReadDataByPath
+} = require('@cuties/fs');
+const {
   CreatedAgentConnection,
+  CreatedAgent,
+  CreatedOptions,
+  OptionsWithAgent,
   ClosedServer,
   DestroyedAgent,
   HttpsRequest,
@@ -38,15 +44,13 @@ const {
   FakeServer
 } = require('./../../fake');
 
-const agent = new Agent({ keepAlive: true });
 const port = 8007;
 const hostname = '127.0.0.1';
 const options = {
   hostname: hostname,
   port: port,
   path: '/',
-  method: 'GET',
-  agent: agent
+  method: 'GET'
 };
 
 class GeneratedRequestCallback extends AsyncObject {
@@ -78,18 +82,23 @@ new KilledProcess(
     new Assertion(
       new Is(
         new CreatedAgentConnection(
-          agent, {port: port}
+          new CreatedAgent(
+            new CreatedOptions(
+              'keepAlive', true,
+              'cert', new ReadDataByPath('./src/cert.pem')
+            )
+          ).as('agent'), {port: port}
         ).as('socket'), Socket
       )
     ).after(
       new Assertion(
         new Is(
           new ReusedSocketOfAgent(
-            agent, as('socket'),
+            as('agent'), as('socket'),
             new EndedRequest(
               new HttpsRequest(
-                options, new GeneratedRequestCallback(
-                  agent, as('socket'), as('server')
+                new OptionsWithAgent(options, as('agent')), new GeneratedRequestCallback(
+                  as('agent'), as('socket'), as('server')
                 )
               )
             )
