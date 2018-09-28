@@ -34,7 +34,7 @@ For more information about parameters in the async objects visit [docs of Node](
 | `ReusedSocketOfAgent` | `agent.reuseSocket` | `agent, socket` | `stream/socket` |
 | `SocketsOfAgent` | `agent.sockets` | `agent` | `object` |
 
-## http
+## https
 
 | Async Object  | Async/sync call | Parameters(default value/description) | Representation result |
 | ------------- | ----------------| ---------- | --------------------- |
