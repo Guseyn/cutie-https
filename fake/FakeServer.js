@@ -31,8 +31,7 @@ module.exports = (port, host, event) => {
     new CreatedHttpsServer(
       new CreatedOptions(
         'key', new ReadDataByPath('./src/key.pem'),
-        'cert', new ReadDataByPath('./src/cert.pem'),
-        'rejectUnauthorized', true
+        'cert', new ReadDataByPath('./src/cert.pem')
       ),
       event || new RequestResponseEvent()
     ), port || 8124, host || '127.0.0.1'
