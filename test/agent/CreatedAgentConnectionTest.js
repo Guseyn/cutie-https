@@ -24,6 +24,7 @@ const {
   KilledProcess
 } = require('@cuties/process');
 const {
+  CreatedAgent,
   CreatedAgentConnection,
   ClosedServer
 } = require('./../../index');

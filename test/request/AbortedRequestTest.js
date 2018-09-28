@@ -2,7 +2,7 @@
 
 const {
   ClientRequest
-} = require('https');
+} = require('http');
 const {
   as, AsyncObject
 }  = require('@cuties/cutie');
