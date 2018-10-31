@@ -41,6 +41,11 @@ For more information about parameters in the async objects visit [docs of Node](
 | `CreatedHttpsServer` | `https.createServer` | `[options][, requestListener(Event with definedBody(request, response))]` | `server` |
 | `HttpsGetRequest` | `https.get` | `options[, listener(Event(one time) with definedBody(incomingMessage))]` | `request` |
 | `HttpsRequest` | `https.request` | `options[, listener(Event(one time) with definedBody(incomingMessage))]` | `request` |
+| `ResponseBody` | `response.body, response = {statusCode, headers, body}` | `response({statusCode, headers, body})` | `body as buffer` |
+| `ResponseFromHttpsGetRequest` | [responseFromHttpsGetRequest](https://github.com/Guseyn/cutie-https/blob/master/src/custom-calls/responseFromHttpsGetRequest.js) | `options` | `response({statusCode, headers, body})` |
+| `ResponseFromHttpsRequest` | [responseFromHttpsRequest](https://github.com/Guseyn/cutie-https/blob/master/src/custom-calls/responseFromHttpsRequest.js) | `options, requestBody(as string)` | `response({statusCode, headers, body})` |
+| `ResponseHeaders` | `response.headers, response = {statusCode, headers, body}` | `response({statusCode, headers, body})` | `object` |
+| `ResponseStatusCode` | `response.statusCode, response = {statusCode, headers, body}` | `response({statusCode, headers, body})` | `number` |
 
 ## incoming-message
 
