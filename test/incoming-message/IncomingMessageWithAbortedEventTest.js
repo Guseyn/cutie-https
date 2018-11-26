@@ -21,7 +21,7 @@ const {
   ClosedServer,
   HttpsRequest,
   EndedRequest,
-  IncomingMessageWithAbortEvent
+  IncomingMessageWithAbortedEvent
 } = require('./../../index');
 const {
   FakeServer
@@ -59,7 +59,7 @@ class GeneratedRequestCallback extends AsyncObject {
       return (res) => {
         new Assertion(
           new Is(
-            new IncomingMessageWithAbortEvent(res, new AbortEvent()),
+            new IncomingMessageWithAbortedEvent(res, new AbortEvent()),
             IncomingMessage
           )
         ).after(

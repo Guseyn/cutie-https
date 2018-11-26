@@ -32,7 +32,7 @@ const options = {
   hostname: hostname,
   port: port,
   path: '/',
-  method: 'GET'
+  method: 'POST'
 };
 
 new KilledProcess(

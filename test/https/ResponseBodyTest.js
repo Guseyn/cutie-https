@@ -26,7 +26,7 @@ const {
   FakeServer
 } = require('./../../fake');
 
-const port = 8086;
+const port = 8091;
 const hostname = '127.0.0.1';
 const options = {
   hostname: hostname,

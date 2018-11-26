@@ -44,7 +44,7 @@ new KilledProcess(
     new Assertion(
       new AreBuffersEqual(
         new ResponseBody(
-          new ResponseFromHttpsGetRequest(options, '{requestBody}')
+          new ResponseFromHttpsGetRequest(options)
         ),
         Buffer.from('fake response')
       )
