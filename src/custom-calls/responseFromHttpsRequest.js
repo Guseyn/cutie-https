@@ -3,7 +3,7 @@
 const https = require('https');
 
 // err, {statusCode, headers, body} in callback
-const responseFromHttpsReqest = (options, requestBody, callback) => {
+const responseFromHttpsRequest = (options, requestBody, callback) => {
   const req = https.request(options, (res) => {
     let resObj = {};
     resObj.statusCode = res.statusCode;
@@ -24,4 +24,4 @@ const responseFromHttpsReqest = (options, requestBody, callback) => {
   req.end();
 }
 
-module.exports = responseFromHttpsReqest;
+module.exports = responseFromHttpsRequest;
