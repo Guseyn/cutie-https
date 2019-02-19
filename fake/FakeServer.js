@@ -34,6 +34,6 @@ module.exports = (port, host, event) => {
         'cert', new ReadDataByPath('./src/cert.pem')
       ),
       event || new RequestResponseEvent()
-    ), port || 8124, host || '127.0.0.1'
+    ), port, host || '127.0.0.1'
   );
 }

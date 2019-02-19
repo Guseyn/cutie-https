@@ -1,23 +1,21 @@
 'use strict'
 
-const AsyncObject = require('@cuties/cutie').AsyncObject;
+const AsyncObject = require('@cuties/cutie').AsyncObject
 const {
   Agent
-} = require('https');
+} = require('https')
 
 // Represented result is agent
 class CreatedAgent extends AsyncObject {
-
-  constructor(agent) {
-    super(agent);
+  constructor (agent) {
+    super(agent)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (options) => {
-      return new Agent(options);
+      return new Agent(options)
     }
   }
-
 }
 
-module.exports = CreatedAgent;
+module.exports = CreatedAgent

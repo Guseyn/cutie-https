@@ -1,20 +1,18 @@
 'use strict'
 
-const AsyncObject = require('@cuties/cutie').AsyncObject;
+const AsyncObject = require('@cuties/cutie').AsyncObject
 
 // Represented result is array
 class ArrayOf extends AsyncObject {
-
-  constructor(...args) {
-    super(...args);
+  constructor (...args) {
+    super(...args)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (...args) => {
-      return args;
+      return args
     }
   }
-
 }
 
-module.exports = ArrayOf;
+module.exports = ArrayOf

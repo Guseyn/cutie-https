@@ -1,4 +1,6 @@
-const executor = require('test-executor');
+'use strict'
+
+const { ExecutedTests } = require('test-executor')
 
 /* 
   The main goal here is to check if everything works properly in terms of consistency of objects,
@@ -8,4 +10,30 @@ const executor = require('test-executor');
 */
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
-executor('./test');
+new ExecutedTests(
+  './test/agent'
+).after(
+  new ExecutedTests(
+    './test/https'
+  ).after(
+    new ExecutedTests(
+      './test/incoming-message'
+    ).after(
+      new ExecutedTests(
+        './test/options'
+      ).after(
+        new ExecutedTests(
+          './test/request'
+        ).after(
+          new ExecutedTests(
+            './test/response'
+          ).after(
+            new ExecutedTests(
+              './test/server'
+            )
+          )
+        )
+      )
+    )
+  )
+).call()

@@ -2,18 +2,15 @@
 
 const {
   Assertion
-} = require('@cuties/assert');
+} = require('@cuties/assert')
 const {
   IsObject
-} = require('@cuties/is');
-const {
-  Agent
-} = require('http');
+} = require('@cuties/is')
 const {
   CreatedAgent,
   CreatedOptions,
   OptionsWithAgent
-} = require('./../../index');
+} = require('./../../index')
 
 new Assertion(
   new IsObject(
@@ -22,4 +19,4 @@ new Assertion(
       new CreatedAgent()
     )
   )
-).call();
+).call()
