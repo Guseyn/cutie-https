@@ -1,26 +1,24 @@
 'use strict'
 
-const AsyncObject = require('@cuties/cutie').AsyncObject;
-const https = require('https');
+const AsyncObject = require('@cuties/cutie').AsyncObject
+const https = require('https')
 
 // Represented result is request
 class HttpsRequest extends AsyncObject {
-
   // callback can be an Event
-  constructor(options, callback) {
-    super(options, callback);
+  constructor (options, callback) {
+    super(options, callback)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (options, callback) => {
-      return https.request(options, callback);
+      return https.request(options, callback)
     }
   }
 
-  onResult(req) {
-    return req;
+  onResult (req) {
+    return req
   }
-
 }
 
-module.exports = HttpsRequest;
+module.exports = HttpsRequest

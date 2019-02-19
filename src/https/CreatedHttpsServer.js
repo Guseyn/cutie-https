@@ -1,21 +1,19 @@
 'use strict'
 
-const AsyncObject = require('@cuties/cutie').AsyncObject;
-const https = require('https');
+const AsyncObject = require('@cuties/cutie').AsyncObject
+const https = require('https')
 
 // Represented result is server
 class CreatedHttpsServer extends AsyncObject {
-
-  constructor(options, requestListener) {
-    super(options, requestListener);
+  constructor (options, requestListener) {
+    super(options, requestListener)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (options, requestListener) => {
-      return https.createServer(options, requestListener);
+      return https.createServer(options, requestListener)
     }
   }
-
 }
 
-module.exports = CreatedHttpsServer;
+module.exports = CreatedHttpsServer

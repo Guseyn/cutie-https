@@ -1,19 +1,11 @@
 'use strict'
 
 const {
-  ServerResponse
-} = require('http');
-const {
   as, AsyncObject, Event
-}  = require('@cuties/cutie');
+} = require('@cuties/cutie')
 const {
-  DeepEqualAssertion
-} = require('@cuties/assert');
-const {
-  FoundProcessOnPort,
-  Pid,
-  KilledProcess
-} = require('@cuties/process');
+  DeepStrictEqualAssertion
+} = require('@cuties/assert')
 const {
   HeaderOfResponse,
   ResponseWithHeader,
@@ -21,68 +13,58 @@ const {
   EndedRequest,
   EndedResponse,
   ClosedServer
-} = require('./../../index');
+} = require('./../../index')
 const {
   FakeServer
-} = require('./../../fake');
+} = require('./../../fake')
 
-const port = 8054;
-const hostname = '127.0.0.1';
+const port = 8054
+const hostname = '127.0.0.1'
 const options = {
   hostname: hostname,
   port: port,
   path: '/',
   method: 'GET'
-};
+}
 
 class RequestResponseEvent extends Event {
-
-  constructor() {
-    super();
+  constructor () {
+    super()
   }
 
-  definedBody(req, res) {
-    new DeepEqualAssertion(
+  definedBody (req, res) {
+    new DeepStrictEqualAssertion(
       new HeaderOfResponse(
         new EndedResponse(
           new ResponseWithHeader(res, 'name', 'value'), 'fake response'
         ), 'name'
       ), 'value'
-    ).call();
+    ).call()
   }
-
 }
 
 class GeneratedRequestCallback extends AsyncObject {
-
-  constructor(server) {
-    super(server);
+  constructor (server) {
+    super(server)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (server) => {
       return (res) => {
-        new ClosedServer(server).call();
+        new ClosedServer(server).call()
       }
     }
   }
-
 }
 
-new KilledProcess(
-  new Pid(
-    new FoundProcessOnPort(port)
-  ), 'SIGHUP'
-).after(
-  FakeServer(
-    port, hostname, new RequestResponseEvent()
-  ).as('server').after(
-    new EndedRequest(
-      new HttpsRequest(
-        options, new GeneratedRequestCallback(
-          as('server')
-        )
+FakeServer(
+  port, hostname, new RequestResponseEvent()
+).as('server').after(
+  new EndedRequest(
+    new HttpsRequest(
+      options, new GeneratedRequestCallback(
+        as('server')
       )
     )
   )
-).call();
+).call()

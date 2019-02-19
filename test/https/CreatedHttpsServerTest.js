@@ -1,79 +1,59 @@
 'use strict'
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const {
-  Agent,
   Server
-} = require('https');
+} = require('https')
 const {
-  Socket
-} = require('net');
+  as, AsyncObject
+} = require('@cuties/cutie')
 const {
-  as, AsyncObject, Event
-} = require('@cuties/cutie');
-const {
-  Assertion, EqualAssertion
-} = require('@cuties/assert');
+  Assertion
+} = require('@cuties/assert')
 const {
   Is
-} = require('@cuties/is');
+} = require('@cuties/is')
 const {
-  FoundProcessOnPort,
-  Pid,
-  KilledProcess
-} = require('@cuties/process');
-const {
-  CreatedAgentConnection,
   ClosedServer,
-  DestroyedAgent,
   HttpsRequest,
-  EndedRequest,
-  ReusedSocketOfAgent
-} = require('./../../index');
+  EndedRequest
+} = require('./../../index')
 const {
   FakeServer
-} = require('./../../fake');
+} = require('./../../fake')
 
-const port = 8009;
-const hostname = '127.0.0.1';
+const port = 8009
+const hostname = '127.0.0.1'
 const options = {
   hostname: hostname,
   port: port,
   path: '/',
   method: 'GET'
-};
+}
 
 class GeneratedRequestCallback extends AsyncObject {
-
-  constructor(server) {
-    super(server);
+  constructor (server) {
+    super(server)
   }
 
-  definedSyncCall() {
+  definedSyncCall () {
     return (server) => {
       return (res) => {
         new Assertion(
           new Is(server, Server)
         ).after(
           new ClosedServer(server)
-        ).call();
+        ).call()
       }
     }
   }
-
 }
 
-new KilledProcess(
-  new Pid(
-    new FoundProcessOnPort(port)
-  ), 'SIGHUP'
-).after(
-  FakeServer(port).as('server').after(
-    new EndedRequest(
-      new HttpsRequest(
-        options, new GeneratedRequestCallback(
-          as('server')
-        )
+FakeServer(port).as('server').after(
+  new EndedRequest(
+    new HttpsRequest(
+      options, new GeneratedRequestCallback(
+        as('server')
       )
     )
   )
-).call();
+).call()

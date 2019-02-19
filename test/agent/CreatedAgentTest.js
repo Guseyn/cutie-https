@@ -2,16 +2,16 @@
 
 const {
   Assertion
-} = require('@cuties/assert');
+} = require('@cuties/assert')
 const {
-  Is  
-} = require('@cuties/is');
+  Is
+} = require('@cuties/is')
 const {
   Agent
-} = require('https');
+} = require('https')
 const {
   CreatedAgent
-} = require('./../../index');
+} = require('./../../index')
 
 new Assertion(
   new Is(
