@@ -26,7 +26,7 @@
     "@cuties/buffer": "^1.1.4",
     "@cuties/cutie": "^1.6.8",
     "@cuties/fs": "^1.1.6",
-    "@cuties/http": "^1.2.9",
+    "@cuties/http": "^1.2.10",
     "@cuties/is": "^1.0.14",
     "@cuties/object": "^1.0.10",
     "@cuties/stream": "^1.1.4",
