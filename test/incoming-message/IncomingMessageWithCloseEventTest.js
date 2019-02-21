@@ -36,7 +36,7 @@ class CloseEvent extends Event {
     super()
   }
 
-  definedBody () {
+  body () {
     // handle
   }
 }
@@ -46,7 +46,7 @@ class GeneratedRequestCallback extends AsyncObject {
     super(server)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (server) => {
       return (res) => {
         new Assertion(

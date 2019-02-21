@@ -32,7 +32,7 @@ class RequestResponseEvent extends Event {
     super()
   }
 
-  definedBody (req, res) {
+  body (req, res) {
     new Assertion(
       new StatusCodeOfResponse(
         new EndedResponse(
@@ -48,7 +48,7 @@ class GeneratedRequestCallback extends AsyncObject {
     super(server)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (server) => {
       return (res) => {
         new ClosedServer(server).call()

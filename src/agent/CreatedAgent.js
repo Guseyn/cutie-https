@@ -11,7 +11,7 @@ class CreatedAgent extends AsyncObject {
     super(agent)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (options) => {
       return new Agent(options)
     }

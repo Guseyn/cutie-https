@@ -9,7 +9,7 @@ class CreatedHttpsServer extends AsyncObject {
     super(options, requestListener)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (options, requestListener) => {
       return https.createServer(options, requestListener)
     }

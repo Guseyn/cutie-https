@@ -49,7 +49,7 @@ class GeneratedRequestCallback extends AsyncObject {
     super(agent, socket, server)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (agent, socket, server) => {
       return (res) => {
         new DestroyedAgent(agent).after(

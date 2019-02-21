@@ -9,7 +9,7 @@ class HttpsGetRequest extends AsyncObject {
     super(options, callback)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return https.get
   }
 }

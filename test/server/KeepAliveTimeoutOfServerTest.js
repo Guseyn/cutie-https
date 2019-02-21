@@ -34,7 +34,7 @@ class RequestResponseEvent extends Event {
     super()
   }
 
-  definedBody (req, res) {
+  body (req, res) {
     new EndedResponse(
       res, 'fake response'
     ).call()
@@ -46,7 +46,7 @@ class GeneratedRequestCallback extends AsyncObject {
     super(server)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (server) => {
       return (res) => {
         new Assertion(
