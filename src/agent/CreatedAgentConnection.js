@@ -8,7 +8,7 @@ class CreatedAgentConnection extends AsyncObject {
     super(agent, options)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (agent, options) => {
       return agent.createConnection(options)
     }

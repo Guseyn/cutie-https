@@ -8,7 +8,7 @@ class ArrayOf extends AsyncObject {
     super(...args)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (...args) => {
       return args
     }

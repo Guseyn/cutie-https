@@ -36,7 +36,7 @@ class GeneratedRequestCallback extends AsyncObject {
     super(server)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (server) => {
       return (res) => {
         new ClosedServer(server).call()
@@ -50,7 +50,7 @@ class UpgradeEvent extends Event {
     super()
   }
 
-  definedBody (req, socket, head) {
+  body (req, socket, head) {
     // on abort
   }
 }

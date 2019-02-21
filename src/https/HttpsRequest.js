@@ -10,7 +10,7 @@ class HttpsRequest extends AsyncObject {
     super(options, callback)
   }
 
-  definedSyncCall () {
+  syncCall () {
     return (options, callback) => {
       return https.request(options, callback)
     }
