@@ -128,6 +128,7 @@ For more information about parameters in the async objects visit [docs of Node](
 | `ResponseWithCloseEvent` | `response.on('close', event)` | `response, event(Event with definedBody())` | `response` |
 | `ResponseWithFinishEvent` | `response.on('finish', event)` | `response, event(Event with definedBody())` | `response` |
 | `ResponseWithHeader` | `response.setHeader` | `response, name, value` | `response` |
+| `ResponseWithHeaders` | `response.setHeader for every in headers` | `response, headers(object)` | `response` |
 | `ResponseWithRemovedHeader` | `response.removeHeader` | `response, name` | `response` |
 | `ResponseWithStatusCode` | `response.statusCode` | `response, statusCode` | `response` |
 | `ResponseWithStatusMessage` | `response.statusMessage` | `response, statusMessage` | `response` |
