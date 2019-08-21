@@ -1,7 +1,7 @@
 let cutieHttps = require('@cuties/http');
 
-cutieHttps.CreatedAgent = require('./src/agent/CreatedAgent');
-cutieHttps.CreatedAgentConnection = require('./src/agent/CreatedAgentConnection');
+cutieHttps.CreatedHttpsAgent = require('./src/agent/CreatedAgent');
+cutieHttps.CreatedHttpsAgentConnection = require('./src/agent/CreatedAgentConnection');
 cutieHttps.CreatedHttpsServer = require('./src/https/CreatedHttpsServer');
 cutieHttps.HttpsGetRequest = require('./src/https/HttpsGetRequest');
 cutieHttps.HttpsRequest = require('./src/https/HttpsRequest');
