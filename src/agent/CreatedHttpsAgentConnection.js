@@ -3,7 +3,7 @@
 const AsyncObject = require('@cuties/cutie').AsyncObject
 
 // Represented result is stream/socket
-class CreatedAgentConnection extends AsyncObject {
+class CreatedHttpsAgentConnection extends AsyncObject {
   constructor (agent, options) {
     super(agent, options)
   }
@@ -15,4 +15,4 @@ class CreatedAgentConnection extends AsyncObject {
   }
 }
 
-module.exports = CreatedAgentConnection
+module.exports = CreatedHttpsAgentConnection

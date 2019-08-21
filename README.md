@@ -37,8 +37,8 @@ For more information about parameters in the async objects visit [docs of Node](
 
 | Async Object  | Async/sync call | Parameters(default value/description) | Representation result |
 | ------------- | ----------------| ---------- | --------------------- |
-| `CreatedAgent` | `new Agent` | `options` | `agent` |
-| `CreatedAgentConnection` | `agent.createConnection` | `agent, options` | `stream/socket` |
+| `CreatedHttpsAgent` | `new Agent` | `options` | `agent` |
+| `CreatedHttpsAgentConnection` | `agent.createConnection` | `agent, options` | `stream/socket` |
 | `DestroyedAgent` | `agent.destroy` | `agent` | `agent` |
 | `KeptSocketAliveOfAgent` | `agent.keepSocketAlive` | `agent, socket` | `socket` |
 | `MaxFreeSocketsOfAgent` | `agent.maxFreeSockets` | `agent` | `number` |
