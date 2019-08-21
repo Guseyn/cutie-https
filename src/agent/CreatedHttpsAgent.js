@@ -6,7 +6,7 @@ const {
 } = require('https')
 
 // Represented result is agent
-class CreatedAgent extends AsyncObject {
+class CreatedHttpsAgent extends AsyncObject {
   constructor (agent) {
     super(agent)
   }
@@ -18,4 +18,4 @@ class CreatedAgent extends AsyncObject {
   }
 }
 
-module.exports = CreatedAgent
+module.exports = CreatedHttpsAgent

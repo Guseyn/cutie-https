@@ -10,12 +10,12 @@ const {
   Agent
 } = require('https')
 const {
-  CreatedAgent
+  CreatedHttpsAgent
 } = require('./../../index')
 
 new Assertion(
   new Is(
-    new CreatedAgent(),
+    new CreatedHttpsAgent(),
     Agent
   )
 ).call()

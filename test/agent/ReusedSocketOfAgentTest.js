@@ -21,8 +21,8 @@ const {
   ReadDataByPath
 } = require('@cuties/fs')
 const {
-  CreatedAgentConnection,
-  CreatedAgent,
+  CreatedHttpsAgentConnection,
+  CreatedHttpsAgent,
   CreatedOptions,
   OptionsWithAgent,
   ClosedServer,
@@ -65,8 +65,8 @@ class GeneratedRequestCallback extends AsyncObject {
 FakeServer(port).as('server').after(
   new Assertion(
     new Is(
-      new CreatedAgentConnection(
-        new CreatedAgent(
+      new CreatedHttpsAgentConnection(
+        new CreatedHttpsAgent(
           new CreatedOptions(
             'keepAlive', true,
             'cert', new ReadDataByPath('./src/cert.pem')
